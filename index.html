@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mar</title>
+    
+    <!-- Enlace al CSS que crearemos en la Etapa 2 -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Estilos mínimos temporales para evitar que todo se amontone antes de la Etapa 2 -->
+</head>
+<body>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main id="app-container">
+
+        <!-- 1. ESCENARIO DE FONDO (Cielo y Mar) -->
+        <section id="environment" aria-hidden="true">
+            <!-- Cielo Nocturno -->
+            <div id="sky">
+                <div id="stars-container">
+                    <!-- Las estrellas normales se generarán por JS -->
+                    <!-- Detalle oculto: Constelación con forma de M -->
+                    <div id="m-constellation" class="hidden-detail"></div>
+                </div>
+                
+                <!-- La Luna (Interactiva) -->
+                <div id="moon-container">
+                    <div id="moon" class="interactive-element"></div>
+                    <div id="moon-glow"></div>
+                </div>
+            </div>
+
+            <!-- El Mar -->
+            <div id="sea">
+                <div id="sea-surface"></div>
+                <div id="moon-reflection"></div>
+                <div id="flower-reflection"></div>
+                
+                <!-- Zona secreta para la interacción de "Mar" -->
+                <div id="secret-water-zone" class="interactive-element">
+                    <div id="water-ripple"></div>
+                    <span id="secret-mar-text">Mar</span>
+                </div>
+
+                <!-- Detalle oculto: Pequeña ola/concha estilizada -->
+                <div id="hidden-shell-detail" class="hidden-detail"></div>
+            </div>
+        </section>
+
+        <!-- 2. ELEMENTO PROTAGONISTA (La Flor) -->
+        <!-- 2. ELEMENTO PROTAGONISTA (Las Flores) -->
+        <section id="flower-scene">
+            
+            <!-- Flor Izquierda -->
+            <div class="flower-container side-flower left-flower">
+                <div class="flower">
+                    <div class="stem"></div>
+                    <div class="leaves">
+                        <div class="leaf leaf-left"></div>
+                        <div class="leaf leaf-right"></div>
+                    </div>
+                    <div class="flower-head">
+                        <div class="petals-container">
+                            <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                            <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                        </div>
+                        <div class="center"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flor Central (Principal) -->
+            <div id="flower-container" class="main-flower">
+                <div id="flower-light-glow"></div>
+                <div class="flower">
+                    <div class="stem"></div>
+                    <div class="leaves">
+                        <div class="leaf leaf-left"></div>
+                        <div class="leaf leaf-right"></div>
+                    </div>
+                    <div class="flower-head">
+                        <div class="petals-container">
+                            <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                            <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                        </div>
+                        <div class="center"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flor Derecha -->
+            <div class="flower-container side-flower right-flower">
+                <div class="flower">
+                    <div class="stem"></div>
+                    <div class="leaves">
+                        <div class="leaf leaf-left"></div>
+                        <div class="leaf leaf-right"></div>
+                    </div>
+                    <div class="flower-head">
+                        <div class="petals-container">
+                            <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                            <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                        </div>
+                        <div class="center"></div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- 3. CAPA DE PARTÍCULAS (Luciérnagas, polvo de estrellas) -->
+        <div id="particles-container" aria-hidden="true"></div>
+
+        <!-- 4. INTERFAZ DE USUARIO (Textos y Botones) -->
+        <section id="ui-layer">
+            <header id="titles">
+                <h1 id="main-title">Para Mar</h1>
+                <p id="subtitle">Una pequeña parte de una noche hecha para ti.</p>
+            </header>
+
+            <nav id="actions">
+                <button id="btn-letter" class="ui-btn">Leer Carta</button>
+                
+                <!-- Botón sorpresa que aparecerá bajo ciertas condiciones -->
+                <button id="btn-surprise" class="ui-btn hidden">?</button>
+            </nav>
+
+            <div id="controls">
+                <button id="btn-music" class="control-btn" aria-label="Reproducir música">🎵</button>
+                <button id="btn-theme" class="control-btn" aria-label="Cambiar iluminación">🌙</button>
+            </div>
+        </section>
+
+        <!-- 5. MODALES Y VENTANAS EMERGENTES -->
+        <div id="modals-container">
+            
+            <!-- Modal de la Carta -->
+            <div id="modal-letter" class="modal">
+                <div class="modal-backdrop"></div>
+                <div class="modal-content envelope-container">
+                    <button class="btn-close">×</button>
+                    <div class="envelope-seal hidden-detail"></div>
+                    <article class="letter-paper">
+                        <p class="greeting">Para Mar,</p>
+                        <p class="letter-body">
+                            Feliz día de las flores amarillas.
+                            <br><br>
+                            Para Mar,
+
+                            Para Mar,
+
+                            Feliz Día de las Flores Amarillas.
+                            
+                            Sé que llego tarde. La fecha ya pasó y no te di nada ese día. No tengo una excusa perfecta, solo que quería que esto saliera bien y me quedé pensando demasiado. Y mientras pensaba, pasaron los días. Perdón por eso.
+                            
+                            No soy bueno con las palabras, así que voy a ser directo: me hubiera gustado entregarte esto a tiempo. Te lo debía. No porque seas mi obligación, sino porque te aprecio y quería hacer algo lindo para ti.
+                            
+                            Hice esta página pensando en ti. En tu nombre. Quería que fuera algo distinto, algo que pudieras abrir y guardar. No es un ramo de flores reales, ya lo sé. Pero es lo que pude hacer con lo que sé hacer.
+                            
+                            Y aprovecho para decirte algo que quizás no te digo seguido:
+                            
+                            Eres importante para mí. No sé cómo explicarlo bien, pero contigo las cosas se sienten más fáciles. Me gusta hablar contigo, me gusta cómo eres, me gusta que existas. Y a veces siento que no te lo digo lo suficiente.
+                            
+                            Perdón por la demora. De verdad. No quería que pensaras que no me importaba, porque es todo lo contrario. Me importas bastante, y por eso justamente quería que esto estuviera bien.
+                            
+                            Gracias por estar. Gracias por ser como eres. Y si algún día dudas de lo que vales, ojalá vuelvas aquí y te acuerdes de que alguien se tomó el tiempo de hacerte algo, aunque haya llegado tarde.
+                            
+                            Feliz día (aunque sea con retraso).
+                            
+                            Con cariño,
+                        </p>
+                        <div class="letter-signature m-signature"></div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Modal de Sorpresa (Mensaje Secreto) -->
+            <div id="modal-surprise" class="modal">
+                <div class="modal-backdrop"></div>
+                <div class="modal-content minimalistic">
+                    <button class="btn-close">×</button>
+                    <h2>Algo que guarda el mar</h2>
+                    <p class="secret-message">"Hay cosas que no necesitan hacer ruido para quedarse con nosotros."</p>
+                    <p class="secret-reveal">"Entre tantas luces, esta noche tiene una que lleva tu nombre."</p>
+                </div>
+            </div>
+            
+        </div>
+
+            <!-- Visor de Fotos a pantalla completa -->
+            <div id="modal-photo" class="modal">
+                <div class="modal-backdrop"></div>
+                <img id="fullscreen-image" src="" alt="Recuerdo">
+                <button class="btn-close">×</button>
+            </div>
+        </div>
+
+        <!-- 6. EXPERIENCIA FINAL (Aparición de MAR) -->
+        <section id="final-experience">
+            <div class="final-content">
+                <h1 id="final-mar-text">MAR</h1>
+                <p id="final-subtitle">Para Mar</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Enlace al JS que crearemos en la Etapa 3 -->
+    <script src="script.js"></script>
+</body>
+</html>
